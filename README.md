@@ -1,3 +1,4 @@
+
 Password-checker-tool
 # Password Strength Checker
 
@@ -8,15 +9,13 @@ Banaya gaya hai students ko cyber safety sikhane ke liye.
 
 pkg install python
 
-python main.py
-
 pkg install git python -y
 
-git clone https://github.com/Pranay@7030/password-strength-checker
+git clone https://github.com/Pranay7030/password-strength-checker
 
 cd password-strength-checker 
 
 && python main.py
 
-This tool use for educational purpose 
 
+This tool use for educational purpose 
