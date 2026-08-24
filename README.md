@@ -1,4 +1,5 @@
-![Tool Screenshot](https://raw.githubusercontent.com/Pranay7030/Password-checker-tool/main/screenshot.png)
+![Tool Screenshot](./screenshot.png)
+
 
 # Password Checker Tool - By Pranav Meshram
 ### Bhandara Cyber Tool - 100% Working
