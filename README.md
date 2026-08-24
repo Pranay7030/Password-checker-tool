@@ -1,21 +1,9 @@
+# Password-checker-tool - 100% Working
 
-Password-checker-tool
-# Password Strength Checker
+Ye tool password strong hai ya nahi batata hai.
 
-Ye tool batata hai tumhara password kitna strong hai.
-Banaya gaya hai students ko cyber safety sikhane ke liye.
-
-### Kaise Chalaye - Termux
-
-pkg install python
-
+### Kaise Chalaye
 pkg install git python -y
-
-git clone https://github.com/Pranay7030/password-strength-checker
-
-cd password-strength-checker 
-
-&& python main.py
-
-
-This tool use for educational purpose 
+git clone https://github.com/Pranay7030/Password-checker-tool.git
+cd Password-checker-tool
+python Main.py
