@@ -1,4 +1,4 @@
-# Password-checker-tool
+Password-checker-tool
 # Password Strength Checker
 
 Ye tool batata hai tumhara password kitna strong hai.
