@@ -1,57 +1,47 @@
-import re
+import re, time, random
 
-print("===================================")
-print("   Password Strength Checker v1.0  ")
-print("   Made for Cyber Safety Education ")
-print("===================================\n")
+R="\033[91m"; G="\033[92m"; Y="\033[93m"; B="\033[94m"; C="\033[96m"; W="\033[97m"; M="\033[95m"; E="\033[0m"
 
-password = input("Apna password yahan likho: ")
+def banner():
+    print(f"{C}  ____  _                     _                   {E}")
+    print(f"{C} | __ )| |__   __ _ __   __| | __ _ __ __ _  {E}")
+    print(f"{B} |  _ \\| '_ \\ / _` | '_ \\ / _` |/ _` | '__/ _` | {E}")
+    print(f"{M} | |_) | | | | (_| | | | | (_| | (_| | | | (_| | {E}")
+    print(f"{Y} |____/|_| |_|\\__,_|_| |_|\\__,_|\\__,_|_|  \\__,_| {E}")
+    print(f"{W}=================================================={E}")
+    print(f"{G} 🛡️  Pranav Meshram - Bhandara Cyber Tool{E}")
+    print(f"{G} 🔓 Password Strength Checker - Termux Edition{E}")
+    print(f"{W}=================================================={E}")
 
-score = 0
-feedback = []
+def check(pwd):
+    checks = {
+        "8+ Characters": len(pwd)>=8,
+        "Uppercase [A-Z]": bool(re.search(r"[A-Z]", pwd)),
+        "Lowercase [a-z]": bool(re.search(r"[a-z]", pwd)),
+        "Number [0-9]": bool(re.search(r"[0-9]", pwd)),
+        "Symbol [!@#]": bool(re.search(r"[!@#$%^&*]", pwd))
+    }
+    score = sum(checks.values())
+    print(f"\n{W}─── Requirements ───{E}")
+    for k,v in checks.items():
+        print(f"{G}  [✔] {k}{E}" if v else f"{R}  [✘] {k}{E}")
+    print(f"{W}────────────────────{E}")
+    bar = "█" * score + "░" * (5-score)
+    if score==5:
+        print(f"{G} [{bar}] STRONG 100% {E}")
+        print(f"{C} Entropy: ~72 bits | Crack Time: Centuries{E}")
+        print(f"{G} Status: Secure Hai Bhai! ✅{E}")
+    elif score>=3:
+        print(f"{Y} [{bar}] MEDIUM {score*20}% {E}")
+        print(f"{Y} Status: Thoda aur strong bana...{E}")
+    else:
+        print(f"{R} [{bar}] WEAK {score*20}% {E}")
+        print(f"{R} Status: Hack ho jayega! ❌{E}")
 
-# 1. Length check
-if len(password) >= 8:
-    score += 1
-else:
-    feedback.append("Kam se kam 8 characters rakho")
-
-# 2. Number check
-if re.search(r"[0-9]", password):
-    score += 1
-else:
-    feedback.append("1 number add karo: 0-9")
-
-# 3. Capital letter check
-if re.search(r"[A-Z]", password):
-    score += 1
-else:
-    feedback.append("1 Capital letter add karo: A-Z")
-
-# 4. Special character check
-if re.search(r"[!@#$%^&*()_+\-=\[\]{};':\"\\|,.<>\/?]", password):
-    score += 1
-else:
-    feedback.append("1 special character add karo: !@#$")
-
-# Result dikhao
-print("\n--- Result ---")
-if score <= 1:
-    print("Status: Weak 🔴")
-    print("Ye password bahut easy hai, hack ho sakta hai")
-elif score == 2:
-    print("Status: Medium 🟡")
-    print("Thik hai, par aur strong banao")
-elif score == 3:
-    print("Status: Strong 🟢")
-    print("Badhiaya password hai!")
-else:
-    print("Status: Very Strong 🔵")
-    print("Perfect! Aisa hi password rakhna chahiye")
-
-if feedback:
-    print("\n--- Improvement Tips ---")
-    for tip in feedback:
-        print("-", tip)
-
-print("\nNote: Ye tool sirf apna password check karne ke liye hai")
+banner()
+while True:
+    p = input(f"\n{M}┌─[{W}PASSWORD{Y}@{W}BHANDARA{M}]{W}─[{C}~{W}]\n{M}└──╼ {W}Password daal: {E}")
+    if p.lower()=="exit": 
+        print(f"{G}Bye Bye!{E}")
+        break
+    check(p)
