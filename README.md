@@ -1,4 +1,4 @@
-![Tool screenshot](screenshot.png)
+![Tool Screenshot](screenshot.png)
 
 # Password Checker Tool - By Pranav Meshram
 ### Bhandara Cyber Tool - 100% Working
