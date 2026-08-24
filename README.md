@@ -9,7 +9,8 @@ pkg install python
 
 python main.py
 pkg install git python -y
-git clone https://github.com/tumhara-username/password-strength-checker
+git clone https://github.com/Pranay@7030/password-strength-checker
 cd password-strength-checker 
 && python main.py
 This tool use for educational purpose 
+
